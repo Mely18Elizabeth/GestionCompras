@@ -1,6 +1,6 @@
 package ec.edu.ups.poo.clases;
 
-public class Producto {
+public class Productos {
   private String codigo;
   private String nombre;
   private String descripcion;
