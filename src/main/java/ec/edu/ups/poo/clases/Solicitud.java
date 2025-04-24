@@ -64,7 +64,7 @@ public class Solicitud {
                 "numero='" + numero + '\'' +
                 ", nombreEmpleado='" + nombreEmpleado + '\'' +
                 ", cantidad=" + cantidad +
-                ", fechaInicio=" + fechaInicio.getTime() +
+                ", fechaInicio=" + fechaInicio +
                 ", estado=" + estado +
                 '}';
     }

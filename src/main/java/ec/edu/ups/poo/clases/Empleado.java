@@ -13,4 +13,11 @@ public class Empleado {
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "departamento=" + departamento +
+                '}';
+    }
 }

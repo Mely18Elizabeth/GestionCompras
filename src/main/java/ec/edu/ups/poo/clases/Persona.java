@@ -54,6 +54,7 @@ public class Persona {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", email='" + email + '\'' +
+                ", direccion=" + direccion +
                 '}';
     }
 }
