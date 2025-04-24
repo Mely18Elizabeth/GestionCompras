@@ -5,6 +5,7 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String email;
+    private Direccion direccion;
 
     public Persona() {}
     public Persona(String id, String nombre, String apellido, String email) {
