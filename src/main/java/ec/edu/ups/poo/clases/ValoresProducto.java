@@ -25,4 +25,12 @@ public class ValoresProducto {
     public void setDescuento(String descuento) {
         this.descuento = descuento;
     }
+
+    @Override
+    public String toString() {
+        return "ValoresProducto{" +
+                "iva='" + iva + '\'' +
+                ", descuento='" + descuento + '\'' +
+                '}';
+    }
 }
