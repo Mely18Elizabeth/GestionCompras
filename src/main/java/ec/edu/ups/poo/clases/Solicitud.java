@@ -7,5 +7,5 @@ public class Solicitud {
     private String nombreEmpleado;
     private String cantidad;
     private GregorianCalendar fechaInicio;
-    private EstadoSolicitud estado;//REVISAR
+    private EstadoSolicitud estado;
 }
