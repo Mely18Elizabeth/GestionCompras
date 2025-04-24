@@ -1,5 +1,5 @@
 package ec.edu.ups.poo.clases;
-
+//dayanna
 public class Persona {
     private String id;
     private String nombre;
