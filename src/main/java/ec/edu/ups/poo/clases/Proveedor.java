@@ -1,5 +1,4 @@
 package ec.edu.ups.poo.clases;
-//day
 import ec.edu.ups.poo.enums.Estado;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//dayanna
 public class Persona {
     private String id;
     private String nombre;
