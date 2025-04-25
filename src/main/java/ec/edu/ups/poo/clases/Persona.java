@@ -1,18 +1,26 @@
 package ec.edu.ups.poo.clases;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 //dayanna
 public class Persona {
     private String id;
     private String nombre;
     private String apellido;
     private String email;
-    private Direccion direccion;
+    private List<Direccion> direccion;
 
-    public Persona() {}
-    public Persona(String id, String nombre, String apellido, String email) {
+    public Persona() {
+        direccion = new ArrayList<>();
+    }
+    public Persona(String id, String nombre, String apellido, String email, List<Direccion> direccion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
+        this.direccion = new ArrayList<>();
     }
 
     public String getId() {
@@ -45,6 +53,14 @@ public class Persona {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Direccion> getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(List<Direccion> direccion) {
+        this.direccion = direccion;
     }
 
     @Override
