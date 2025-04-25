@@ -58,7 +58,6 @@ public class Persona {
     public List<Direccion> getDireccion() {
         return direccion;
     }
-
     public void setDireccion(List<Direccion> direccion) {
         this.direccion = direccion;
     }

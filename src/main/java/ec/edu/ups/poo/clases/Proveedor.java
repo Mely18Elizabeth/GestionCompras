@@ -15,7 +15,6 @@ public class Proveedor extends Empleado{
         this.productos = productos;
     }
 
-
     public List<Producto> getProductos() {
         return productos;
     }
