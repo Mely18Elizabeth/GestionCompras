@@ -1,4 +1,5 @@
 package ec.edu.ups.poo.clases;
+
 public class Direccion {
     private String callePrincipal;
     private String calleSecundaria;
