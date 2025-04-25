@@ -66,7 +66,5 @@ public class Principal {
             System.out.println();
 
         } while (opcion != 15);
-
-        scanner.close();
     }
 }
