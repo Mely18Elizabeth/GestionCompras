@@ -1,7 +1,7 @@
 package ec.edu.ups.poo.clases;
 
 import ec.edu.ups.poo.enums.Rol;
-
+//Day
 public class Departamento {
     private Rol rol;
 
