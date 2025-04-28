@@ -2,7 +2,7 @@
 
 ## 👥 Integrantes
 
-- Melany Elizabeth Pintado
+- Melany Elizabeth Pintado Pillco
 - Janelly Dayanna Chacha Vélez
 
 ---
