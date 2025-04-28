@@ -62,15 +62,23 @@ public class Principal {
 
                 case 4:
                     System.out.println("Listando proveedores...");
-                    for (Proveedor proveedor : proveedores) {
-                        System.out.println(proveedor);
+                    if (proveedores.isEmpty()) {
+                        System.out.println("No hay proveedores registrados.");
+                    } else {
+                        for (Proveedor proveedor : proveedores) {
+                            System.out.println(proveedor); // Llamará al toString() de Proveedor
+                        }
                     }
                     break;
 
                 case 5:
                     System.out.println("Listando productos...");
-                    for (Producto p : productos) {
-                        System.out.println(p);
+                    if (productos.isEmpty()) {
+                        System.out.println("No hay productos registrados.");
+                    } else {
+                        for (Producto p : productos) {
+                            System.out.println(p); // Llamará al toString() de Producto
+                        }
                     }
                     break;
 
