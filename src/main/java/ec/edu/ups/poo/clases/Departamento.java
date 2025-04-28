@@ -1,8 +1,11 @@
 package ec.edu.ups.poo.clases;
+
 import ec.edu.ups.poo.enums.Rol;
 
-public class Departamento extends Empleado{
+public class Departamento {
     private Rol rol;
+
+    public Departamento() {}
 
     public Departamento(Rol rol) {
         this.rol = rol;
@@ -23,3 +26,4 @@ public class Departamento extends Empleado{
                 '}';
     }
 }
+

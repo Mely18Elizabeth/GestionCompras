@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Persona {
-    private String id;
+    private int id;
     private String nombre;
     private String apellido;
     private String email;
@@ -12,19 +12,19 @@ public class Persona {
     public Persona() {
         direccion = new ArrayList<>();
     }
-    public Persona(String id, String nombre, String apellido, String email, List<Direccion> direccion) {
+    public Persona(int id, String nombre, String apellido, String email, List<Direccion> direccion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.direccion = new ArrayList<>();
+        this.direccion = direccion;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

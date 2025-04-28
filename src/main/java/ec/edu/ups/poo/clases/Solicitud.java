@@ -1,20 +1,20 @@
 package ec.edu.ups.poo.clases;
+
 import ec.edu.ups.poo.enums.Estado;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Solicitud {
     private String numero;
-    private String nombreEmpleado;
-    private Double cantidad;
     private GregorianCalendar fechaInicio;
     private Estado estado;
-
-    public Solicitud(String numero, String nombreEmpleado, Double cantidad, GregorianCalendar fechaInicio, Estado estado) {
+    private List<ItemSolicitud> items;
+    public Solicitud(String numero, GregorianCalendar fechaInicio, Estado estado) {
         this.numero = numero;
-        this.nombreEmpleado = nombreEmpleado;
-        this.cantidad = cantidad;
         this.fechaInicio = fechaInicio;
         this.estado = estado;
+        this.items = new ArrayList<>();
     }
 
     public String getNumero() {
@@ -23,22 +23,6 @@ public class Solicitud {
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
-    }
-
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-    }
-
-    public Double getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Double cantidad) {
-        this.cantidad = cantidad;
     }
 
     public GregorianCalendar getFechaInicio() {
@@ -57,13 +41,20 @@ public class Solicitud {
         this.estado = estado;
     }
 
+    public List<ItemSolicitud> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemSolicitud> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
         return "Solicitud:" +
                 "\n  Número: " + numero +
-                "\n  Nombre del empleado: " + nombreEmpleado +
-                "\n  Cantidad: " + cantidad +
                 "\n  Fecha de inicio: " + fechaInicio.getTime() +
-                "\n  Estado: " + estado;
+                "\n  Estado: " + estado +
+                "\n  Items: " + items;  // Muestra los ítems de la solicitud
     }
 }

@@ -1,36 +1,37 @@
 package ec.edu.ups.poo.clases;
 
-public class ValoresProducto extends Producto {
-    private String iva;
-    private String descuento;
+public class ValoresProducto {
+    private double iva;
+    private double descuento;
 
-    public ValoresProducto(String iva, String descuento) {
+    public ValoresProducto(double iva, double descuento) {
         this.iva = iva;
         this.descuento = descuento;
     }
+
     public ValoresProducto() {}
 
-    public String getIva() {
+    public double getIva() {
         return iva;
     }
 
-    public void setIva(String iva) {
+    public void setIva(double iva) {
         this.iva = iva;
     }
 
-    public String getDescuento() {
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(String descuento) {
+    public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
 
     @Override
     public String toString() {
         return "ValoresProducto{" +
-                "iva='" + iva + '\'' +
-                ", descuento='" + descuento + '\'' +
+                "iva=" + iva +
+                ", descuento=" + descuento +
                 '}';
     }
 }
