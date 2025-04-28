@@ -44,7 +44,7 @@ public class Principal {
                         String nombre = scanner.nextLine();
                         System.out.print("Descripción: ");
                         String descripcion = scanner.nextLine();
-                        System.out.print("Precio: ");
+                        System.out.print("Precio(utilizar , como separador)): ");
                         double precio = scanner.nextDouble();
                         System.out.print("Cantidad: ");
                         int cantidadProducto = scanner.nextInt();
