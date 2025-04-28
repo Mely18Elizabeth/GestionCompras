@@ -55,6 +55,6 @@ public class Solicitud {
                 "\n  Número: " + numero +
                 "\n  Fecha de inicio: " + fechaInicio.getTime() +
                 "\n  Estado: " + estado +
-                "\n  Items: " + items;  // Muestra los ítems de la solicitud
+                "\n  Items: " + items;
     }
 }
