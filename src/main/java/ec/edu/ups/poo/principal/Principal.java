@@ -77,16 +77,13 @@ public class Principal {
                         String descripcion = scanner.nextLine();
                         System.out.print("Precio: ");
                         double precio = scanner.nextDouble();
-                        System.out.print("Cantidad: ");
-                        int cantidadProducto = scanner.nextInt();
-                        scanner.nextLine();
                         System.out.print("IVA (porcentaje): ");
                         double iva = scanner.nextDouble();
                         System.out.print("Descuento (porcentaje): ");
                         double descuento = scanner.nextDouble();
                         scanner.nextLine();
                         ValoresProducto valores = new ValoresProducto(iva, descuento);
-                        Producto producto = new Producto(codigo, nombre, descripcion, precio, cantidadProducto, valores);
+                        Producto producto = new Producto(codigo, nombre, descripcion, precio, valores);
                         productos.add(producto);
                     }
                     break;
@@ -116,16 +113,34 @@ public class Principal {
                         List<Direccion> direcciones = new ArrayList<>();
                         direcciones.add(direccion);
 
-                        System.out.println("Seleccione el rol del empleado:");
-                        for (Rol rol : Rol.values()) {
-                            System.out.println(rol.ordinal() + ". " + rol);
-                        }
-                        int opcionRol = scanner.nextInt();
+                        System.out.println("Seleccione el departamento:");
+                        System.out.println("1. Finanzas");
+                        System.out.println("2. Producción");
+                        System.out.println("3. Administración");
+                        System.out.println("4. Secretaría");
+                        System.out.println("5. Gerencia");
+                        int opDepa = scanner.nextInt();
                         scanner.nextLine();
-                        Rol rolSeleccionado = Rol.values()[opcionRol];
-                        Departamento departamento = new Departamento(rolSeleccionado);
-                        Empleado empleado = new Empleado(id, nombre, apellido, correo, direcciones, departamento);
-                        empleados.add(empleado);
+                        Rol rolSelec = null;
+                        if (opDepa == 1) {
+                            rolSelec = Rol.Finanzas;
+                        } else if (opDepa == 2) {
+                            rolSelec = Rol.Produccion;
+                        } else if (opDepa == 3) {
+                            rolSelec = Rol.Administracion;
+                        } else if (opDepa == 4) {
+                            rolSelec = Rol.Secretaria;
+                        } else if (opDepa == 5) {
+                            rolSelec = Rol.Gerencia;
+                        } else {
+                            System.out.println("Opción inválida.");
+                        }
+
+                        if (rolSelec != null) {
+                            Departamento departamento = new Departamento(rolSelec);
+                            Empleado empleado = new Empleado(id, nombre, apellido, correo, direcciones, departamento);
+                            empleados.add(empleado);
+                        }
                     }
                     break;
                 case 4:
@@ -142,34 +157,24 @@ public class Principal {
                         int dia = scanner.nextInt();
                         scanner.nextLine();
                         GregorianCalendar fechaInicio = new GregorianCalendar(anio, mes, dia);
-                        Estado estadoSeleccionado = Estado.Solicitado;
-                        Solicitud solicitud = new Solicitud(numero, fechaInicio, estadoSeleccionado);
+                        Estado estSelec = Estado.Solicitado;
+                        Solicitud solicitud = new Solicitud(numero, fechaInicio, estSelec);
                         System.out.print("¿Cuántos productos? ");
                         int cantidadItems = scanner.nextInt();
                         scanner.nextLine();
                         for (int j = 0; j < cantidadItems; j++) {
                             System.out.print("Cantidad del producto: ");
-                            double cantidadSolicitada = scanner.nextDouble();
+                            double canti = scanner.nextDouble();
                             scanner.nextLine();
                             System.out.print("Seleccione el producto (número): ");
-                            int productoSeleccionado = scanner.nextInt();
+                            int prodSelc = scanner.nextInt();
                             scanner.nextLine();
-                            Producto productoSeleccionadoObj = productos.get(productoSeleccionado);
-
-                            if (productoSeleccionadoObj != null && productoSeleccionadoObj.getCantidad() >= cantidadSolicitada) {
-                                productoSeleccionadoObj.setCantidad(productoSeleccionadoObj.getCantidad() - (int) cantidadSolicitada);
-                                solicitud.getItems().add(new ItemSolicitud(cantidadSolicitada, productoSeleccionadoObj));
-                                System.out.println("Producto agregado.");
-                            } else {
-                                System.out.println("Cantidad insuficiente o producto no válido.");
-                                j--;
-                            }
+                            Producto producSelec = productos.get(prodSelc);
                         }
                         solicitudes.add(solicitud);
                         System.out.println("Solicitud registrada.");
                     }
                     break;
-
 
                 case 5:
                     System.out.println("Listando proveedores");
@@ -203,11 +208,11 @@ public class Principal {
                     break;
                 case 9:
                     System.out.print("Ingrese el ID del proveedor a buscar: ");
-                    int idBuscado = scanner.nextInt();
+                    int idBus = scanner.nextInt();
                     scanner.nextLine();
                     boolean encontrado = false;
                     for (Proveedor proveedor : proveedores) {
-                        if (proveedor.getId() == idBuscado) {
+                        if (proveedor.getId() == idBus) {
                             System.out.println("Proveedor encontrado: ");
                             System.out.println(proveedor);
                             encontrado = true;
@@ -215,48 +220,48 @@ public class Principal {
                         }
                     }
                     if (!encontrado) {
-                        System.out.println("Proveedor con ID " + idBuscado + " no encontrado.");
+                        System.out.println("Proveedor con ID " + idBus + " no encontrado.");
                     }
                     break;
 
                 case 10:
                     System.out.print("Ingrese el nombre del producto a buscar: ");
                     scanner.nextLine();
-                    String nombreBuscado = scanner.nextLine();
-                    nombreBuscado = nombreBuscado.toLowerCase();
-                    boolean productoEncontrado = false;
+                    String nomBus = scanner.nextLine();
+                    nomBus = nomBus.toLowerCase();
+                    boolean producBus = false;
                     for (Producto producto : productos) {
-                        if (producto.getNombre().toLowerCase().equals(nombreBuscado)) {
+                        if (producto.getNombre().toLowerCase().equals(nomBus)) {
                             System.out.println("Producto encontrado: ");
                             System.out.println(producto);
-                            productoEncontrado = true;
+                            producBus = true;
                             break;
                         }
                     }
-                    if (!productoEncontrado) {
-                        System.out.println("Producto con nombre \"" + nombreBuscado + "\" no encontrado.");
+                    if (!producBus) {
+                        System.out.println("Producto con nombre \"" + nomBus + "\" no encontrado.");
                     }
                     break;
 
                 case 11:
                     System.out.print("Ingrese el número de solicitud a buscar: ");
                     scanner.nextLine();
-                    String numeroSolicitudBuscada = scanner.nextLine();
-                    boolean solicitudEncontrada = false;
+                    String numSolicitado = scanner.nextLine();
+                    boolean solEn = false;
                     for (Solicitud solicitud : solicitudes) {
-                        if (solicitud.getNumero().equals(numeroSolicitudBuscada)) {
+                        if (solicitud.getNumero().equals(numSolicitado)) {
                             System.out.println("Solicitud encontrada: ");
                             System.out.println(solicitud);
                             System.out.println("  Items de la solicitud:");
                             for (ItemSolicitud item : itemsSolicitud) {
                                 System.out.println(item);
                             }
-                            solicitudEncontrada = true;
+                            solEn = true;
                             break;
                         }
                     }
-                    if (!solicitudEncontrada) {
-                        System.out.println("Solicitud con número \"" + numeroSolicitudBuscada + "\" no encontrada.");
+                    if (!solEn) {
+                        System.out.println("Solicitud con número \"" + numSolicitado + "\" no encontrada.");
                     }
 
                     break;
@@ -265,7 +270,7 @@ public class Principal {
                     System.out.print("Ingrese el número de solicitud a aprobar o rechazar: ");
                     scanner.nextLine();
                     String numSolic = scanner.nextLine();
-                    boolean solicitudEncontradaParaAprobar = false;
+                    boolean solic = false;
                     for (Solicitud solicitud : solicitudes) {
                         if (solicitud.getNumero().equals(numSolic)) {
                             System.out.println("Solicitud encontrada: ");
@@ -274,23 +279,23 @@ public class Principal {
                             System.out.println("1. Aprobar");
                             System.out.println("2. Rechazar");
                             System.out.print("Seleccione una opción: ");
-                            int opcionAprobacion = scanner.nextInt();
+                            int opcA = scanner.nextInt();
                             scanner.nextLine();
-                            if (opcionAprobacion == 1) {
+                            if (opcA == 1) {
                                 solicitud.setEstado(Estado.Aprobado);
                                 System.out.println("Solicitud aprobada.");
-                            } else if (opcionAprobacion == 2) {
+                            } else if (opcA == 2) {
                                 solicitud.setEstado(Estado.Rechazado);
                                 System.out.println("Solicitud rechazada.");
                             } else {
                                 System.out.println("Opción inválida.");
                             }
-                            solicitudEncontradaParaAprobar = true;
+                            solic = true;
                             break;
                         }
                     }
 
-                    if (!solicitudEncontradaParaAprobar) {
+                    if (!solic) {
                         System.out.println("Solicitud con número \"" + numSolic + "\" no encontrada.");
                     }
                     break;
@@ -299,26 +304,28 @@ public class Principal {
                     System.out.print("Ingrese el número de solicitud para calcular el total: ");
                     scanner.nextLine();
                     String numSolicitud = scanner.nextLine();
-                    boolean sols = false;
+                    boolean solici = false;
 
                     for (Solicitud solicitud : solicitudes) {
                         if (solicitud.getNumero().equals(numSolicitud)) {
-                            double totalSolicitud = 0;
+                            double total= 0;
                             for (ItemSolicitud item : solicitud.getItems()) {
                                 Producto producto = item.getProducto();
                                 double precioTotal = producto.getPrecio() * item.getCantidad();
                                 double ivaTotal = precioTotal * producto.getValores().getIva() / 100;
                                 double descuentoTotal = precioTotal * producto.getValores().getDescuento() / 100;
-                                totalSolicitud += precioTotal + ivaTotal - descuentoTotal;
+                                total += precioTotal + ivaTotal - descuentoTotal;
                             }
-                            System.out.println("Total de la solicitud: " + totalSolicitud);
-                            solicitudEncontrada = true;
+                            System.out.println("Total de la solicitud: " + total);
+                            solici = true;
                             break;
                         }
                     }
-                    if (!sols) {
+
+                    if (!solici) {
                         System.out.println("Solicitud no encontrada.");
                     }
+
                     break;
                 case 14:
                     System.out.println("Saliendo del sistema...");
