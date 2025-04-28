@@ -25,6 +25,7 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     System.out.println("Registrando proveedor...");
+
                     break;
                 case 2:
                     System.out.println("Registrando producto...");
