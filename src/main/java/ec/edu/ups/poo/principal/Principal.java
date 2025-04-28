@@ -70,10 +70,23 @@ public class Principal {
                     System.out.println("Listando solicitudes de compra...");
                     break;
                 case 7:
-                    System.out.println("Buscando proveedor por ID...");
+                    System.out.print("Ingrese el ID del proveedor a buscar: ");
+                    int idProveedor = scanner.nextInt();
+                    boolean encontrado = false;
+                    for (Producto producto : productos) { // Necesitas tener la lista 'proveedores' declarada como List<Proveedor> proveedores = new ArrayList<>();
+                        if (producto.getCodigo() == idProveedor) {
+                            System.out.println("Proveedor encontrado: " + idProveedor);
+                            encontrado = true;
+                            break;
+                        }
+                    }
+                    if (!encontrado) {
+                        System.out.println("Proveedor no encontrado.");
+                    }
                     break;
+
                 case 8:
-                    System.out.println("Buscando producto por nombre...");
+                    System.out.println();
                     break;
                 case 9:
                     System.out.println("Buscando solicitud por número...");
