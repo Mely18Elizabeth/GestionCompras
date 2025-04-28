@@ -1,19 +1,20 @@
 package ec.edu.ups.poo.clases;
 
-public class Producto {
+public class Producto extends Proveedor {
   private String codigo;
   private String nombre;
   private String descripcion;
-  private int precio;
+  private double precio;
   private int cantidad;
 
-  public Producto(String codigo, String nombre, String descripcion, int precio, int cantidad) {
+  public Producto(String codigo, String nombre, String descripcion, double precio, int cantidad) {
     this.codigo = codigo;
     this.nombre = nombre;
     this.descripcion = descripcion;
     this.precio = precio;
     this.cantidad = cantidad;
   }
+
   public Producto() {}
 
   public String getCodigo() {
@@ -40,11 +41,11 @@ public class Producto {
     this.descripcion = descripcion;
   }
 
-  public int getPrecio() {
+  public double getPrecio() {
     return precio;
   }
 
-  public void setPrecio(int precio) {
+  public void setPrecio(double precio) {
     this.precio = precio;
   }
 

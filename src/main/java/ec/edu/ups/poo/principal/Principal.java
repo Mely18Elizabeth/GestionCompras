@@ -1,12 +1,16 @@
 package ec.edu.ups.poo.principal;
+import java.util.ArrayList;
+import java.util.List;
+import ec.edu.ups.poo.clases.*;
 import java.util.Scanner;
+
 public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        List<Producto> productos = new ArrayList<>();
         int opcion;
-
         do {
-            System.out.println("===== SISTEMA DE GESTIÓN DE COMPRAS ERP =====");
+            System.out.println("===== SISTEMA DE GESTIÓN DE COMPRAS =====");
             System.out.println("1. Registrar proveedor");
             System.out.println("2. Registrar producto");
             System.out.println("3. Registrar solicitud de compra");
@@ -28,7 +32,27 @@ public class Principal {
 
                     break;
                 case 2:
-                    System.out.println("Registrando producto...");
+                    System.out.print("¿Cuántos productos quieres registrar? ");
+                    int cantidad = scanner.nextInt();
+                    scanner.nextLine();
+
+                    for (int i = 0; i < cantidad; i++) {
+                        System.out.println("Producto #" + (i + 1));
+                        System.out.print("Código: ");
+                        String codigo = scanner.nextLine();
+                        System.out.print("Nombre: ");
+                        String nombre = scanner.nextLine();
+                        System.out.print("Descripción: ");
+                        String descripcion = scanner.nextLine();
+                        System.out.print("Precio: ");
+                        double precio = scanner.nextDouble();
+                        System.out.print("Cantidad: ");
+                        int cantidadProducto = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Producto producto = new Producto(codigo, nombre, descripcion, precio, cantidadProducto);
+                        productos.add(producto);
+                    }
                     break;
                 case 3:
                     System.out.println("Registrando solicitud de compra...");
@@ -38,6 +62,9 @@ public class Principal {
                     break;
                 case 5:
                     System.out.println("Listando productos...");
+                    for (Producto p : productos) {
+                        System.out.println(p);
+                    }
                     break;
                 case 6:
                     System.out.println("Listando solicitudes de compra...");
@@ -65,7 +92,6 @@ public class Principal {
             }
 
             System.out.println();
-
         } while (opcion != 15);
     }
 }

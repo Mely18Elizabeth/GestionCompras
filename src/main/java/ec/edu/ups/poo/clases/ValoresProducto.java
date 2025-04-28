@@ -1,6 +1,6 @@
 package ec.edu.ups.poo.clases;
 
-public class ValoresProducto {
+public class ValoresProducto extends Producto {
     private String iva;
     private String descuento;
 

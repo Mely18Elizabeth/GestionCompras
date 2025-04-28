@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Proveedor extends Empleado{
+public class Proveedor {
     private List<Producto> productos;
 
     public Proveedor() {
