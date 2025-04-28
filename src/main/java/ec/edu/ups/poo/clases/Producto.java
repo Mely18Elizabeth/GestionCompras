@@ -1,28 +1,39 @@
 package ec.edu.ups.poo.clases;
 
-public class Producto extends Proveedor {
-  private String codigo;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Producto {
+  private String id;
   private String nombre;
-  private String descripcion;
-  private double precio;
-  private int cantidad;
+  private List<Producto> productos;
 
-  public Producto(String codigo, String nombre, String descripcion, double precio, int cantidad) {
-    this.codigo = codigo;
+  // Constructor vacío
+  public Producto() {
+    this.productos = new ArrayList<>();
+  }
+
+  // Constructor con ID y nombre
+  public Producto(String id, String nombre) {
+    this.id = id;
     this.nombre = nombre;
-    this.descripcion = descripcion;
-    this.precio = precio;
-    this.cantidad = cantidad;
+    this.productos = new ArrayList<>();
   }
 
-  public Producto() {}
-
-  public String getCodigo() {
-    return codigo;
+  // Constructor completo
+  public Producto(String id, String nombre, List<Producto> productos) {
+    this.id = id;
+    this.nombre = nombre;
+    this.productos = productos;
   }
 
-  public void setCodigo(String codigo) {
-    this.codigo = codigo;
+  // Getters y Setters
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getNombre() {
@@ -33,39 +44,21 @@ public class Producto extends Proveedor {
     this.nombre = nombre;
   }
 
-  public String getDescripcion() {
-    return descripcion;
+  public List<Producto> getProductos() {
+    return productos;
   }
 
-  public void setDescripcion(String descripcion) {
-    this.descripcion = descripcion;
+  public void setProductos(List<Producto> productos) {
+    this.productos = productos;
   }
 
-  public double getPrecio() {
-    return precio;
-  }
-
-  public void setPrecio(double precio) {
-    this.precio = precio;
-  }
-
-  public int getCantidad() {
-    return cantidad;
-  }
-
-  public void setCantidad(int cantidad) {
-    this.cantidad = cantidad;
-  }
-
+  // Método toString mejorado
   @Override
   public String toString() {
-    return "Producto{" +
-            "codigo='" + codigo + '\'' +
-            ", nombre='" + nombre + '\'' +
-            ", descripcion='" + descripcion + '\'' +
-            ", precio=" + precio +
-            ", cantidad=" + cantidad +
+    return "Proveedor {" +
+            "ID = '" + id + '\'' +
+            ", Nombre = '" + nombre + '\'' +
+            ", Productos = " + productos +
             '}';
   }
 }
-
