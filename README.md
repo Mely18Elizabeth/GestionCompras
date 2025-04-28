@@ -2,9 +2,9 @@
 
 ## 👥 Integrantes
 
-- Melany Pintado
-- Dayanna Chacha
-- 
+- Melany Elizabeth Pintado Pillco
+- Janelly Dayanna Chacha Vélez
+
 ---
 
 ## 📝 Descripción breve del proyecto
