@@ -59,12 +59,11 @@ public class Solicitud {
 
     @Override
     public String toString() {
-        return "Solicitud{" +
-                "numero='" + numero + '\'' +
-                ", nombreEmpleado='" + nombreEmpleado + '\'' +
-                ", cantidad=" + cantidad +
-                ", fechaInicio=" + fechaInicio +
-                ", estado=" + estado +
-                '}';
+        return "Solicitud:" +
+                "\n  Número: " + numero +
+                "\n  Nombre del empleado: " + nombreEmpleado +
+                "\n  Cantidad: " + cantidad +
+                "\n  Fecha de inicio: " + fechaInicio.getTime() +
+                "\n  Estado: " + estado;
     }
 }
