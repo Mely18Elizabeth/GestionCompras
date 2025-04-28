@@ -12,7 +12,7 @@
 Este proyecto consiste en el desarrollo de un sistema ERP básico para la **gestión de compras** de una organización educativa o empresarial.  
 El sistema permite registrar proveedores y productos, crear solicitudes de compra por parte de los departamentos, controlar el estado de las solicitudes (SOLICITADA, EN_REVISIÓN, APROBADA, RECHAZADA) y calcular los totales de cada compra.
 
-El sistema está estructurado siguiendo buenas prácticas de programación orientada a objetos en Java, aplicando separación de clases, uso de enumeraciones (`enum`) y controladores para manejar la lógica de cada entidad.
+El sistema está estructurado siguiendo  prácticas de programación orientada a objetos en Java, aplicando separación de clases, uso de enumeraciones (`enum`) y controladores para manejar la lógica de cada entidad.
 
 ---
 
