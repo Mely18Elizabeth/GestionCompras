@@ -8,13 +8,19 @@ public class Solicitud {
     private Double cantidad;
     private GregorianCalendar fechaInicio;
     private Estado estado;
+    private Estado estadoSolicitado;
+    private Double precio;
 
-    public Solicitud(String numero, String nombreEmpleado, Double cantidad, GregorianCalendar fechaInicio, Estado estado) {
+    public Solicitud() {}
+
+    public Solicitud(String numero, String nombreEmpleado, Double cantidad) {
         this.numero = numero;
         this.nombreEmpleado = nombreEmpleado;
         this.cantidad = cantidad;
-        this.fechaInicio = fechaInicio;
-        this.estado = estado;
+        this.fechaInicio = new GregorianCalendar();
+        this.estado = Estado.Rechazado;
+        this.estadoSolicitado = Estado.Solicitado;
+        this.precio = 0.0;
     }
 
     public String getNumero() {
@@ -57,13 +63,32 @@ public class Solicitud {
         this.estado = estado;
     }
 
+    public Estado getEstadoSolicitado() {
+        return estadoSolicitado;
+    }
+
+    public void setEstadoSolicitado(Estado estadoSolicitado) {
+        this.estadoSolicitado = estadoSolicitado;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
     @Override
     public String toString() {
-        return "Solicitud:" +
-                "\n  Número: " + numero +
-                "\n  Nombre del empleado: " + nombreEmpleado +
-                "\n  Cantidad: " + cantidad +
-                "\n  Fecha de inicio: " + fechaInicio.getTime() +
-                "\n  Estado: " + estado;
+        return "Solicitud{" +
+                "numero='" + numero + '\'' +
+                ", nombreEmpleado='" + nombreEmpleado + '\'' +
+                ", cantidad=" + cantidad +
+                ", fechaInicio=" + fechaInicio +
+                ", estado=" + estado +
+                ", estadoSolicitado=" + estadoSolicitado +
+                ", precio=" + precio +
+                '}';
     }
 }

@@ -52,7 +52,6 @@ public class Producto {
     this.productos = productos;
   }
 
-  // Método toString mejorado
   @Override
   public String toString() {
     return "Proveedor {" +

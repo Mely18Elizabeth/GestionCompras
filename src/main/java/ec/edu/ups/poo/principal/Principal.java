@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import ec.edu.ups.poo.clases.*;
+import ec.edu.ups.poo.enums.Estado;
 
 public class Principal {
     public static void main(String[] args) {
@@ -11,6 +12,7 @@ public class Principal {
         List<Producto> productos = new ArrayList<>();
         List<Proveedor> proveedores = new ArrayList<>();
         List<Solicitud> solicitudes = new ArrayList<>();
+
         int opcion;
 
         do {
@@ -66,7 +68,7 @@ public class Principal {
                         System.out.println("No hay proveedores registrados.");
                     } else {
                         for (Proveedor proveedor : proveedores) {
-                            System.out.println(proveedor); // Llamará al toString() de Proveedor
+                            System.out.println(proveedor);
                         }
                     }
                     break;
@@ -77,21 +79,25 @@ public class Principal {
                         System.out.println("No hay productos registrados.");
                     } else {
                         for (Producto p : productos) {
-                            System.out.println(p); // Llamará al toString() de Producto
+                            System.out.println(p);
                         }
                     }
                     break;
 
                 case 6:
                     System.out.println("Listando solicitudes de compra...");
-                    for (Solicitud s : solicitudes) {
-                        System.out.println(s);
+                    if (solicitudes.isEmpty()) {
+                        System.out.println("No hay solicitudes de compra.");
+                    } else {
+                        for (Solicitud s : solicitudes) {
+                            System.out.println(s);
+                        }
                     }
                     break;
 
                 case 7:
                     System.out.print("Ingrese el ID del proveedor a buscar: ");
-                    scanner.nextLine(); // limpiar buffer
+                    scanner.nextLine();
                     String idProveedor = scanner.nextLine();
                     boolean proveedorEncontrado = false;
                     for (Proveedor proveedor : proveedores) {
@@ -141,13 +147,42 @@ public class Principal {
                     break;
 
                 case 10:
-                    System.out.println("Aprobando / Rechazando solicitud de compra...");
-                    // Lógica de aprobación/rechazo
+                    System.out.print("Ingrese el número de solicitud a aprobar/rechazar: ");
+                    scanner.nextLine();
+                    String numeroSolicitudAprobar = scanner.nextLine();
+
+                    Solicitud solicitudAEncontrar = null;
+                    for (Solicitud solicitud : solicitudes) {
+                        if (solicitud.getNumero().equals(numeroSolicitudAprobar)) {
+                            solicitudAEncontrar = solicitud;
+                            break;
+                        }
+                    }
+
+                    if (solicitudAEncontrar != null) {
+                        System.out.println("Solicitud encontrada: " + solicitudAEncontrar);
+                        System.out.println("Seleccione una opción:");
+                        System.out.println("1. Aprobar solicitud");
+                        System.out.println("2. Rechazar solicitud");
+                        System.out.print("Ingrese su opción: ");
+                        int opcionEstado = scanner.nextInt();
+
+                        if (opcionEstado == 1) {
+                            solicitudAEncontrar.setEstado(Estado.Aprobado);
+                            System.out.println("Solicitud aprobada.");
+                        } else if (opcionEstado == 2) {
+                            solicitudAEncontrar.setEstado(Estado.Rechazado);
+                            System.out.println("Solicitud rechazada.");
+                        } else {
+                            System.out.println("Opción inválida.");
+                        }
+                    } else {
+                        System.out.println("Solicitud no encontrada.");
+                    }
                     break;
 
                 case 11:
-                    System.out.println("Calculando total de la solicitud...");
-                    // Lógica de cálculo
+                    System.out.println("Calcular total:");
                     break;
 
                 case 12:
